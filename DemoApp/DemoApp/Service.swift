@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+typealias RequestCompletion<T> = (Result<T, Error>) -> Void
+
+protocol ServiceProtocol {
+
+}
+
+class Service {
+
+    func getPhotos(_ completion: RequestCompletion<[Photo]>) {
+
+    }
+
+    func getComments(id: Int, _ completion: RequestCompletion<[Photo]>) {
+
+    }
+}

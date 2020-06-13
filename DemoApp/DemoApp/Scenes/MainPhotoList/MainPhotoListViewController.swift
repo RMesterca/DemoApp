@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+// MainPhotoListViewController.swift
 //  DemoApp
 //
 //  Created by Raluca Mesterca on 13/06/2020.
@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol MainPhotoListViewControllerProtocol {
+
+}
+
+class MainPhotoListViewController: UIViewController, MainPhotoListViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()

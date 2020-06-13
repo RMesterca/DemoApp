@@ -19,6 +19,6 @@ private var application: UIApplicationProtocol
       }
 
     func setRootViewController() {
-        application.rootViewController = ViewController()
+        application.rootViewController = MainPhotoListViewController()
     }
 }
