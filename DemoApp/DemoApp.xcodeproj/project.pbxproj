@@ -15,6 +15,8 @@
 		0454F845249524C5006109ED /* DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F844249524C5006109ED /* DemoAppTests.swift */; };
 		04769BE52495317E00AEB59E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BE42495317E00AEB59E /* Utility.swift */; };
 		04769BE82495325D00AEB59E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BE72495325C00AEB59E /* R.generated.swift */; };
+		04769BEA2495339B00AEB59E /* RootNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BE92495339B00AEB59E /* RootNavigator.swift */; };
+		04769BEC249533AA00AEB59E /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BEB249533AA00AEB59E /* SharedAssembly.swift */; };
 		08F663A176C9B124B9D4DEC8 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951F9951113D0CABA21F31EF /* Pods_DemoApp.framework */; };
 		EAA922DA25D97707C4959435 /* Pods_DemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		0454F846249524C5006109ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04769BE42495317E00AEB59E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		04769BE72495325C00AEB59E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = DemoApp/App/R.generated.swift; sourceTree = SOURCE_ROOT; };
+		04769BE92495339B00AEB59E /* RootNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigator.swift; sourceTree = "<group>"; };
+		04769BEB249533AA00AEB59E /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
 		26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F45C66511A2294BD4A9A31 /* Pods-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55B704F197FAEE8E4818A983 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			children = (
 				0454F82D249524BF006109ED /* AppDelegate.swift */,
 				0454F82F249524BF006109ED /* SceneDelegate.swift */,
+				04769BE92495339B00AEB59E /* RootNavigator.swift */,
+				04769BEB249533AA00AEB59E /* SharedAssembly.swift */,
 				04769BE72495325C00AEB59E /* R.generated.swift */,
 			);
 			path = App;
@@ -179,6 +185,7 @@
 				0454F827249524BF006109ED /* Frameworks */,
 				0454F828249524BF006109ED /* Resources */,
 				D8A00AA21A4C210A1EBAED77 /* [CP] Embed Pods Frameworks */,
+				04769BED249533E800AEB59E /* Swiftlint Script */,
 			);
 			buildRules = (
 			);
@@ -287,6 +294,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
+		04769BED249533E800AEB59E /* Swiftlint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		1921317EE92CA66145BC2C02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,6 +381,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				04769BE52495317E00AEB59E /* Utility.swift in Sources */,
+				04769BEA2495339B00AEB59E /* RootNavigator.swift in Sources */,
+				04769BEC249533AA00AEB59E /* SharedAssembly.swift in Sources */,
 				0454F832249524BF006109ED /* ViewController.swift in Sources */,
 				04769BE82495325D00AEB59E /* R.generated.swift in Sources */,
 				0454F82E249524BF006109ED /* AppDelegate.swift in Sources */,
