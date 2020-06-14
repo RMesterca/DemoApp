@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BaseURL {
+enum BaseURL {
 
     enum Environment {
         case dev

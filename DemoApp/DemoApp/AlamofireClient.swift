@@ -35,7 +35,7 @@ class AlamofireClient<Target: TargetType>: AlamofireClientProtocol {
 
                 switch response.result {
                 case .success(let data):
-                    completion(Result(catching: { try self.decode(value: data ?? [:]) }))
+                    completion(Result(catching: { try self.decode(value: data) }))
                 case .failure(let error):
                     completion(.failure(error))
                 }

@@ -34,7 +34,7 @@ class SharedAssembly: Assembly {
         container.autoregister(ErrorHandlerProtocol.self, initializer: ErrorHandler.init)
 
         // Service
-        container.register(ServiceProtocol.self) { resolver in
+        container.register(ServiceProtocol.self) { _ in
             return Service(client: AlamofireClient<DemoAppTarget>())
         }
 

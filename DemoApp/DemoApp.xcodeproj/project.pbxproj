@@ -52,6 +52,7 @@
 		04769C4624963FA200AEB59E /* UIViewControllerRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4524963FA200AEB59E /* UIViewControllerRouting.swift */; };
 		04769C48249642FC00AEB59E /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */; };
 		04769C4A24964F9300AEB59E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4924964F9300AEB59E /* R.generated.swift */; };
+		047CD279249698580056AFDB /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CD278249698580056AFDB /* RoundedView.swift */; };
 		08F663A176C9B124B9D4DEC8 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951F9951113D0CABA21F31EF /* Pods_DemoApp.framework */; };
 		EAA922DA25D97707C4959435 /* Pods_DemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		04769C4524963FA200AEB59E /* UIViewControllerRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRouting.swift; sourceTree = "<group>"; };
 		04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
 		04769C4924964F9300AEB59E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		047CD278249698580056AFDB /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F45C66511A2294BD4A9A31 /* Pods-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55B704F197FAEE8E4818A983 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				04769C0624956F7E00AEB59E /* ApplicationNavigationController.swift */,
+				047CD278249698580056AFDB /* RoundedView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				04769C48249642FC00AEB59E /* ReuseIdentifiers.swift in Sources */,
 				04769BEA2495339B00AEB59E /* RootNavigator.swift in Sources */,
 				04769BF4249552D600AEB59E /* UIWindow+disableDarkMode.swift in Sources */,
+				047CD279249698580056AFDB /* RoundedView.swift in Sources */,
 				04769C0524956E2300AEB59E /* MainPhotoListViewModel.swift in Sources */,
 				04769BEC249533AA00AEB59E /* SharedAssembly.swift in Sources */,
 				04769C0324956E1300AEB59E /* PhotoDetailViewModel.swift in Sources */,

@@ -18,7 +18,6 @@ extension PhotoDetailViewControllerProtocol {
     }
 }
 
-
 class PhotoDetailViewController: UIViewController, PhotoDetailViewControllerProtocol {
 
     override func viewDidLoad() {

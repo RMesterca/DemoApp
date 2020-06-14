@@ -58,17 +58,18 @@ extension MainPhotoListViewController {
         tableView = UITableView()
         self.view.addSubview(tableView)
 
-        tableView.autoPinEdge(.top, to: .top, of: self.view)
-        tableView.autoPinEdge(.bottom, to: .bottom, of: self.view)
-        tableView.autoPinEdge(.leading, to: .leading, of: self.view)
-        tableView.autoPinEdge(.trailing, to: .trailing, of: self.view)
-
-        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: ReuseIdentifiers.mainPhotoList.rawValue)
+        tableView.autoPinEdge(toSuperviewSafeArea: .top)
+        tableView.autoPinEdge(toSuperviewSafeArea: .bottom)
+        tableView.autoPinEdge(toSuperviewSafeArea: .leading)
+        tableView.autoPinEdge(toSuperviewSafeArea: .trailing)
 
         tableView.delegate = self
         tableView.dataSource = viewModel?.dataSource
+
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+
+        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: ReuseIdentifiers.mainPhotoList.rawValue)
     }
 }
 
@@ -81,11 +82,4 @@ extension MainPhotoListViewController {
 }
 
 // Table View Delegate
-extension MainPhotoListViewController: UITableViewDelegate {
-
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
-
-}
+extension MainPhotoListViewController: UITableViewDelegate { }

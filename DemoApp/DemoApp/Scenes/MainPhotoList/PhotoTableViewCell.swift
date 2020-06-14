@@ -13,9 +13,10 @@ import Nuke
 class PhotoTableViewCell: UITableViewCell {
 
     // MARK: Properties
+    private var roundedBackgroundView: UIView!
     private var stackView: UIStackView!
-    private var label: UILabel!
-    private (set) var thumbnailImageView: UIImageView!
+    private var titleLabel: UILabel!
+    private var thumbnailImageView: UIImageView!
 
     // MARK: Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -31,62 +32,87 @@ class PhotoTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        label.text = ""
+        titleLabel.text = ""
         thumbnailImageView?.image = nil
+    }
+
+    // configure from api model
+    func configure(photo: Photo) {
+        titleLabel.text = photo.title
+        loadImage(path: photo.thumbnailURL)
     }
 }
 
-// MARK: Configure
+// MARK: Configure Views
 extension PhotoTableViewCell {
 
     func configureViews() {
+        configureThumbnailImageView()
+        configureTitleLabel()
+        configureStackview()
 
-        // stackview
+        configureConstraints()
+    }
+
+    // Thumbnail Image View
+    func configureThumbnailImageView() {
+        thumbnailImageView = UIImageView(forAutoLayout: ())
+        thumbnailImageView.contentMode = .scaleAspectFill
+    }
+
+    // Title Label
+    func configureTitleLabel() {
+        titleLabel = UILabel(forAutoLayout: ())
+        titleLabel.numberOfLines = 0
+    }
+
+    // Stackview
+    func configureStackview() {
         stackView = UIStackView(forAutoLayout: ())
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
+        stackView.alignment = .center
         stackView.spacing = 10
 
         self.contentView.addSubview(stackView)
 
-        stackView.autoPinEdge(.top, to: .top, of: self.contentView)
-        stackView.autoPinEdge(.bottom, to: .bottom, of: self.contentView)
-
-        stackView.autoConstrainAttribute(.trailing, to: .trailing, of: contentView, withOffset: 10)
-        stackView.autoConstrainAttribute(.leading, to: .leading, of: contentView, withOffset: 10)
-
-        // imageView
-        thumbnailImageView = UIImageView(forAutoLayout: ())
-        thumbnailImageView.contentMode = .scaleAspectFit
-
-        // label
-        label = UILabel(forAutoLayout: ())
-        label.numberOfLines = 0
-        label.sizeToFit()
+        configureStackViewConstraints()
 
         stackView.addArrangedSubview(thumbnailImageView)
-        stackView.addArrangedSubview(label)
-//        self.addSubview(label)
+        stackView.addArrangedSubview(titleLabel)
+    }
+}
 
+// MARK: Constraints
+extension PhotoTableViewCell {
 
-
+    func configureConstraints() {
+        configureStackViewConstraints()
+        configureThumbnailConstraints()
     }
 
-    func configure(photo: Photo) {
-        label.text = photo.title
-        loadImage(path: photo.thumbnailURL)
+    func configureStackViewConstraints() {
+        stackView.autoPinEdge(.top, to: .top, of: self.contentView, withOffset: 5)
+        stackView.autoPinEdge(.bottom, to: .bottom, of: self.contentView, withOffset: -5)
+        stackView.autoPinEdge(.trailing, to: .trailing, of: self.contentView, withOffset: -20)
+        stackView.autoPinEdge(.leading, to: .leading, of: self.contentView, withOffset: 20)
+    }
+
+    func configureThumbnailConstraints() {
+        let dimension: CGFloat = 50
+        thumbnailImageView.autoSetDimension(.height, toSize: dimension)
+        thumbnailImageView.autoSetDimension(.width, toSize: dimension)
+
+        thumbnailImageView.layer.cornerRadius = dimension / 2
+        thumbnailImageView.layer.masksToBounds = true
     }
 }
 
 // MARK: Helpers
 extension PhotoTableViewCell {
 
-//    func loadImage(path: String, cell: PhotoTableViewCell) {
     func loadImage(path: String) {
-
-
         guard let placeholderImage = R.image.icons8Camera503() else { return assertionFailure() }
-//        guard let imageView = cell.thumbnailImageView else { return assertionFailure() }
         guard let imageURL = URL(string: path) else { return assertionFailure() }
 
         let options = ImageLoadingOptions(
@@ -95,9 +121,7 @@ extension PhotoTableViewCell {
             failureImage: placeholderImage,
             failureImageTransition: .fadeIn(duration: 0.2),
             contentModes: nil)
+
         Nuke.loadImage(with: imageURL, options: options, into: thumbnailImageView)
-
-
-//        Nuke.loadImage(with: imageURL, options: options, into: imageView)
     }
 }

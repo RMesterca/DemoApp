@@ -18,7 +18,6 @@ class PhotoDataSource: NSObject, PhotoDataSourceProtocol {
 
     var data: [Photo] = []
 
-    // MARK: DI
     func set(data: [Photo]) {
         self.data = data
     }
@@ -40,10 +39,7 @@ extension PhotoDataSource {
         }
 
         cell.configure(photo: data[indexPath.row])
-//        loadImage(path: data[indexPath.row].thumbnailURL, cell: cell)
 
         return cell
     }
 }
-
-
