@@ -21,7 +21,7 @@ target 'DemoApp' do
         pod 'SwinjectAutoregistration'
 
 	# Image loading
-	# pod 'Nuke'
+	pod 'Nuke'
  	
 	# Reachability
 	# pod "Connectivity"

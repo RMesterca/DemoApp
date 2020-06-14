@@ -9,8 +9,9 @@
 import UIKit
 
 protocol UIApplicationProtocol {
-    var keyWindow: UIWindow? { get }
     var rootViewController: UIViewController? { get set }
+
+    func topViewController(controller: UIViewController?) -> UIViewController?
 }
 
 extension UIApplication: UIApplicationProtocol {
@@ -29,5 +30,21 @@ extension UIApplication: UIApplicationProtocol {
             } else {
                 keyWindow?.rootViewController = newValue             }
         }
+    }
+
+    func topViewController(controller: UIViewController?) -> UIViewController? {
+        var base: UIViewController?
+
+        base = controller == nil ? rootViewController : controller
+
+        if let navigationController = base as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+
+        if let presented = base?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        
+        return base
     }
 }

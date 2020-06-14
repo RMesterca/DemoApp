@@ -6,4 +6,44 @@
 //  Copyright © 2020 Fig. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol PhotoDataSourceProtocol: UITableViewDataSource {
+    var data: [Photo] { get }
+
+    func set(data: [Photo])
+}
+
+class PhotoDataSource: NSObject, PhotoDataSourceProtocol {
+
+    var data: [Photo] = []
+
+    // MARK: DI
+    func set(data: [Photo]) {
+        self.data = data
+    }
+}
+
+// MARK: UITableViewDataSource
+extension PhotoDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: ReuseIdentifiers.mainPhotoList.rawValue,
+            for: indexPath) as? PhotoTableViewCell else {
+                assertionFailure()
+                return UITableViewCell()
+        }
+
+        cell.configure(photo: data[indexPath.row])
+//        loadImage(path: data[indexPath.row].thumbnailURL, cell: cell)
+
+        return cell
+    }
+}
+
+

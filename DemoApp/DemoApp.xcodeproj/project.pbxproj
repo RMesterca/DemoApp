@@ -13,7 +13,6 @@
 		0454F837249524C4006109ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0454F836249524C4006109ED /* Assets.xcassets */; };
 		0454F83A249524C4006109ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0454F838249524C4006109ED /* LaunchScreen.storyboard */; };
 		0454F845249524C5006109ED /* DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0454F844249524C5006109ED /* DemoAppTests.swift */; };
-		04769BE82495325D00AEB59E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BE72495325C00AEB59E /* R.generated.swift */; };
 		04769BEA2495339B00AEB59E /* RootNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BE92495339B00AEB59E /* RootNavigator.swift */; };
 		04769BEC249533AA00AEB59E /* SharedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BEB249533AA00AEB59E /* SharedAssembly.swift */; };
 		04769BF2249549AC00AEB59E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769BF1249549AC00AEB59E /* Service.swift */; };
@@ -45,6 +44,14 @@
 		04769C2C24958DA900AEB59E /* AlamofireClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C2B24958DA900AEB59E /* AlamofireClient.swift */; };
 		04769C2E2495941F00AEB59E /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C2D2495941F00AEB59E /* BaseURL.swift */; };
 		04769C302495A72200AEB59E /* MainPhotoListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C2F2495A72200AEB59E /* MainPhotoListDataSource.swift */; };
+		04769C3624963B7E00AEB59E /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C3424963B7D00AEB59E /* PhotoTableViewCell.swift */; };
+		04769C3924963D9300AEB59E /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C3824963D9300AEB59E /* ErrorHandler.swift */; };
+		04769C3B24963DD200AEB59E /* Micrologger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C3A24963DD200AEB59E /* Micrologger.swift */; };
+		04769C3D24963E2500AEB59E /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C3C24963E2500AEB59E /* AlertPresenter.swift */; };
+		04769C4424963F6D00AEB59E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4324963F6D00AEB59E /* TopViewController.swift */; };
+		04769C4624963FA200AEB59E /* UIViewControllerRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4524963FA200AEB59E /* UIViewControllerRouting.swift */; };
+		04769C48249642FC00AEB59E /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */; };
+		04769C4A24964F9300AEB59E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4924964F9300AEB59E /* R.generated.swift */; };
 		08F663A176C9B124B9D4DEC8 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951F9951113D0CABA21F31EF /* Pods_DemoApp.framework */; };
 		EAA922DA25D97707C4959435 /* Pods_DemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,7 +78,6 @@
 		0454F840249524C5006109ED /* DemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0454F844249524C5006109ED /* DemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppTests.swift; sourceTree = "<group>"; };
 		0454F846249524C5006109ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04769BE72495325C00AEB59E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = DemoApp/App/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		04769BE92495339B00AEB59E /* RootNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigator.swift; sourceTree = "<group>"; };
 		04769BEB249533AA00AEB59E /* SharedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAssembly.swift; sourceTree = "<group>"; };
 		04769BF1249549AC00AEB59E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -104,6 +110,14 @@
 		04769C2B24958DA900AEB59E /* AlamofireClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireClient.swift; sourceTree = "<group>"; };
 		04769C2D2495941F00AEB59E /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		04769C2F2495A72200AEB59E /* MainPhotoListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoListDataSource.swift; sourceTree = "<group>"; };
+		04769C3424963B7D00AEB59E /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		04769C3824963D9300AEB59E /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		04769C3A24963DD200AEB59E /* Micrologger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micrologger.swift; sourceTree = "<group>"; };
+		04769C3C24963E2500AEB59E /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		04769C4324963F6D00AEB59E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		04769C4524963FA200AEB59E /* UIViewControllerRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRouting.swift; sourceTree = "<group>"; };
+		04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
+		04769C4924964F9300AEB59E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F45C66511A2294BD4A9A31 /* Pods-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55B704F197FAEE8E4818A983 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,12 +169,13 @@
 			isa = PBXGroup;
 			children = (
 				04769BE2249530E600AEB59E /* App */,
-				04769BE1249530DD00AEB59E /* Utilities */,
+				04769BE1249530DD00AEB59E /* Common */,
 				04769BF02495499800AEB59E /* Networking */,
 				04769BE0249530D000AEB59E /* Scenes */,
 				04769BE32495312600AEB59E /* Resources */,
 				0454F838249524C4006109ED /* LaunchScreen.storyboard */,
 				0454F83B249524C4006109ED /* Info.plist */,
+				04769C4924964F9300AEB59E /* R.generated.swift */,
 			);
 			path = DemoApp;
 			sourceTree = "<group>";
@@ -183,14 +198,16 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		04769BE1249530DD00AEB59E /* Utilities */ = {
+		04769BE1249530DD00AEB59E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				04769BF3249552D600AEB59E /* UIWindow+disableDarkMode.swift */,
-				04769C0624956F7E00AEB59E /* ApplicationNavigationController.swift */,
-				04769C272495890A00AEB59E /* RouterProtocol.swift */,
+				04769C4224963ECE00AEB59E /* CustomViews */,
+				04769C4124963EA700AEB59E /* Enums */,
+				04769C4024963E9C00AEB59E /* Protocols */,
+				04769C3F24963E8500AEB59E /* Extensions */,
+				04769C3E24963E7C00AEB59E /* Utilities */,
 			);
-			path = Utilities;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		04769BE2249530E600AEB59E /* App */ = {
@@ -200,9 +217,7 @@
 				0454F82F249524BF006109ED /* SceneDelegate.swift */,
 				04769BF52495560D00AEB59E /* DemoApp.swift */,
 				04769BEB249533AA00AEB59E /* SharedAssembly.swift */,
-				04769BF724955C0500AEB59E /* UIApplicationProtocol.swift */,
 				04769BE92495339B00AEB59E /* RootNavigator.swift */,
-				04769BE72495325C00AEB59E /* R.generated.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -235,6 +250,7 @@
 				0454F831249524BF006109ED /* MainPhotoListViewController.swift */,
 				04769C0424956E2300AEB59E /* MainPhotoListViewModel.swift */,
 				04769C2F2495A72200AEB59E /* MainPhotoListDataSource.swift */,
+				04769C3424963B7D00AEB59E /* PhotoTableViewCell.swift */,
 			);
 			path = MainPhotoList;
 			sourceTree = "<group>";
@@ -276,6 +292,51 @@
 				04769C2524957F9000AEB59E /* MetalMania-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		04769C3E24963E7C00AEB59E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04769C3C24963E2500AEB59E /* AlertPresenter.swift */,
+				04769C3824963D9300AEB59E /* ErrorHandler.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		04769C3F24963E8500AEB59E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04769BF3249552D600AEB59E /* UIWindow+disableDarkMode.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04769C4024963E9C00AEB59E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				04769BF724955C0500AEB59E /* UIApplicationProtocol.swift */,
+				04769C272495890A00AEB59E /* RouterProtocol.swift */,
+				04769C4324963F6D00AEB59E /* TopViewController.swift */,
+				04769C4524963FA200AEB59E /* UIViewControllerRouting.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		04769C4124963EA700AEB59E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				04769C3A24963DD200AEB59E /* Micrologger.swift */,
+				04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		04769C4224963ECE00AEB59E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				04769C0624956F7E00AEB59E /* ApplicationNavigationController.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		0AB2C9D35425F605D8EC7CB7 /* Frameworks */ = {
@@ -523,6 +584,7 @@
 				04769BFF24956CEB00AEB59E /* Photo.swift in Sources */,
 				04769C2A24958CBF00AEB59E /* DemoAppTarget.swift in Sources */,
 				04769C2E2495941F00AEB59E /* BaseURL.swift in Sources */,
+				04769C48249642FC00AEB59E /* ReuseIdentifiers.swift in Sources */,
 				04769BEA2495339B00AEB59E /* RootNavigator.swift in Sources */,
 				04769BF4249552D600AEB59E /* UIWindow+disableDarkMode.swift in Sources */,
 				04769C0524956E2300AEB59E /* MainPhotoListViewModel.swift in Sources */,
@@ -530,16 +592,22 @@
 				04769C0324956E1300AEB59E /* PhotoDetailViewModel.swift in Sources */,
 				0454F832249524BF006109ED /* MainPhotoListViewController.swift in Sources */,
 				04769BF2249549AC00AEB59E /* Service.swift in Sources */,
+				04769C4A24964F9300AEB59E /* R.generated.swift in Sources */,
+				04769C3924963D9300AEB59E /* ErrorHandler.swift in Sources */,
+				04769C3624963B7E00AEB59E /* PhotoTableViewCell.swift in Sources */,
 				04769C302495A72200AEB59E /* MainPhotoListDataSource.swift in Sources */,
 				04769C0724956F7E00AEB59E /* ApplicationNavigationController.swift in Sources */,
 				04769C282495890A00AEB59E /* RouterProtocol.swift in Sources */,
+				04769C3D24963E2500AEB59E /* AlertPresenter.swift in Sources */,
 				04769BFC24955D6300AEB59E /* PhotoDetailViewController.swift in Sources */,
 				04769BF62495560D00AEB59E /* DemoApp.swift in Sources */,
 				04769C0124956D5800AEB59E /* Comment.swift in Sources */,
-				04769BE82495325D00AEB59E /* R.generated.swift in Sources */,
 				04769C2C24958DA900AEB59E /* AlamofireClient.swift in Sources */,
 				0454F82E249524BF006109ED /* AppDelegate.swift in Sources */,
 				04769BF824955C0500AEB59E /* UIApplicationProtocol.swift in Sources */,
+				04769C3B24963DD200AEB59E /* Micrologger.swift in Sources */,
+				04769C4624963FA200AEB59E /* UIViewControllerRouting.swift in Sources */,
+				04769C4424963F6D00AEB59E /* TopViewController.swift in Sources */,
 				0454F830249524BF006109ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
