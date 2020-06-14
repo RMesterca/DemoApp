@@ -47,6 +47,7 @@ class PhotoTableViewCell: UITableViewCell {
 extension PhotoTableViewCell {
 
     func configureViews() {
+        self.selectionStyle = .none
         configureThumbnailImageView()
         configureTitleLabel()
         configureStackview()

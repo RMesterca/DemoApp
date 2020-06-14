@@ -45,6 +45,7 @@ class MainPhotoListViewController: UIViewController, MainPhotoListViewController
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
+        self.title = "Photo List"
 
         prepareTableView()
         viewModel?.fetchPhotos()
@@ -82,4 +83,9 @@ extension MainPhotoListViewController {
 }
 
 // Table View Delegate
-extension MainPhotoListViewController: UITableViewDelegate { }
+extension MainPhotoListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        viewModel
+    }
+}

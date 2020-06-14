@@ -53,6 +53,7 @@
 		04769C48249642FC00AEB59E /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C47249642FC00AEB59E /* ReuseIdentifiers.swift */; };
 		04769C4A24964F9300AEB59E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04769C4924964F9300AEB59E /* R.generated.swift */; };
 		047CD279249698580056AFDB /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CD278249698580056AFDB /* RoundedView.swift */; };
+		047CD27A2496B1970056AFDB /* MetalMania-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04769C2524957F9000AEB59E /* MetalMania-Regular.ttf */; };
 		08F663A176C9B124B9D4DEC8 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 951F9951113D0CABA21F31EF /* Pods_DemoApp.framework */; };
 		EAA922DA25D97707C4959435 /* Pods_DemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26967E2575D3A99EB91E01AE /* Pods_DemoAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -453,6 +454,7 @@
 				04769C1A24957F8300AEB59E /* Roboto-Regular.ttf in Resources */,
 				04769C1E24957F8300AEB59E /* Roboto-Bold.ttf in Resources */,
 				04769C1924957F8300AEB59E /* Roboto-Medium.ttf in Resources */,
+				047CD27A2496B1970056AFDB /* MetalMania-Regular.ttf in Resources */,
 				04769C2124957F8300AEB59E /* Roboto-LightItalic.ttf in Resources */,
 				04769C1824957F8300AEB59E /* Roboto-MediumItalic.ttf in Resources */,
 				04769C2424957F8400AEB59E /* Roboto-BlackItalic.ttf in Resources */,

@@ -29,7 +29,7 @@ class RootNavigator: RootNavigatorProtocol {
 
     func setInitialViewController() {
         // normally, this would have been instantiated via swinject storyboard
-        application.rootViewController = initialViewController.toPresent()
+        application.rootViewController = ApplicationNavigationController(rootViewController:  initialViewController.toPresent())
 //            initialViewController.instantiateViewController()
     }
 }
