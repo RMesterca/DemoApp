@@ -38,6 +38,6 @@ class DemoApp: DemoAppProtocol {
     }
 
     func prepare() {
-        rootNavigator.setRootViewController()
+        rootNavigator.setInitialViewController()
     }
 }

@@ -6,21 +6,28 @@
 //  Copyright © 2020 Fig. All rights reserved.
 //
 
-import Foundation
+//import Alamofire
 
 typealias RequestCompletion<T> = (Result<T, Error>) -> Void
 
 protocol ServiceProtocol {
-
+    func getPhotos(_ completion: @escaping RequestCompletion<[Photo]>)
+    func getComments(id: Int, _ completion: @escaping RequestCompletion<[Comment]>) 
 }
 
-class Service {
+class Service: ServiceProtocol {
 
-    func getPhotos(_ completion: RequestCompletion<[Photo]>) {
+    let client: AlamofireClient<DemoAppTarget>
 
+    init(client: AlamofireClient<DemoAppTarget>) {
+        self.client = client
     }
 
-    func getComments(id: Int, _ completion: RequestCompletion<[Photo]>) {
+    func getPhotos(_ completion: @escaping RequestCompletion<[Photo]>) {
+        client.request(.getPhotos, completion)
+    }
 
+    func getComments(id: Int, _ completion: @escaping RequestCompletion<[Comment]>) {
+        client.request(.getComments(id: id), completion)
     }
 }

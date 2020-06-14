@@ -9,24 +9,34 @@
 import UIKit
 
 protocol MainPhotoListViewControllerProtocol {
+    var viewModel: MainPhotoListViewModelProtocol? { get }
 
+    func set(viewModel: MainPhotoListViewModelProtocol)
+}
+
+extension MainPhotoListViewControllerProtocol {
+
+    func instantiateViewController() -> MainPhotoListViewController {
+        let vc = MainPhotoListViewController()
+        guard let viewModel = viewModel else { assertionFailure(); return vc }
+        vc.set(viewModel: viewModel)
+        return vc
+    }
 }
 
 class MainPhotoListViewController: UIViewController, MainPhotoListViewControllerProtocol {
+
+    private (set) var viewModel: MainPhotoListViewModelProtocol?
+
+    func set(viewModel: MainPhotoListViewModelProtocol) {
+        self.viewModel = viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
-        configureButton()
-    }
 
-    func configureButton() {
-        let button = UIButton(frame: CGRect(
-            origin: CGPoint(x: self.view.center.x - 100, y: self.view.center.y - 25),
-            size: CGSize(width: 200, height: 50)))
-        button.backgroundColor = .red
-
-        self.view.addSubview(button)
+        viewModel?.makeRequest()
     }
 }

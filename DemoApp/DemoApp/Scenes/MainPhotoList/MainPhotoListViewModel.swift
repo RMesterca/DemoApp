@@ -8,8 +8,28 @@
 
 
 protocol MainPhotoListViewModelProtocol {
+     func makeRequest()
 }
 
 class MainPhotoListViewModel: MainPhotoListViewModelProtocol {
+
+    private let service: ServiceProtocol
+
+    init(service: ServiceProtocol) {
+        self.service = service
+    }
+
+    func makeRequest() {
+        service.getPhotos { [weak self] result in
+            switch result {
+            case .success(let photos):
+
+                debugPrint(photos)
+            case .failure(let error):
+                break
+                //handle error case
+            }
+        }
+    }
 
 }

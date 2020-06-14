@@ -16,7 +16,21 @@ class SharedAssembly: Assembly {
         container.register(UIApplicationProtocol.self) { _ in UIApplication.shared }
 
         container.register(RootNavigatorProtocol.self) { resolver in
-            return RootNavigator(application: resolver ~> UIApplicationProtocol.self)
+            return RootNavigator(
+                application: resolver ~> UIApplicationProtocol.self,
+                initialViewController: resolver ~> (MainPhotoListViewControllerProtocol.self))
         }
+
+        container.register(ServiceProtocol.self) { resolver in
+            return Service(client: AlamofireClient<DemoAppTarget>())
+        }
+
+        container.register(MainPhotoListViewControllerProtocol.self) { resolver in
+            let vc =  MainPhotoListViewController()
+            vc.set(viewModel: resolver ~> MainPhotoListViewModelProtocol.self)
+            return vc
+        }
+
+        container.autoregister(MainPhotoListViewModelProtocol.self, initializer: MainPhotoListViewModel.init)
     }
 }

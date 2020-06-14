@@ -9,8 +9,15 @@
 import UIKit
 
 protocol PhotoDetailViewControllerProtocol {
-
 }
+
+extension PhotoDetailViewControllerProtocol {
+
+    func instantiateViewController() -> PhotoDetailViewController {
+        return PhotoDetailViewController()
+    }
+}
+
 
 class PhotoDetailViewController: UIViewController, PhotoDetailViewControllerProtocol {
 
