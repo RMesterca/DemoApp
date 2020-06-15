@@ -1,11 +1,11 @@
 PODS:
   - Alamofire (5.1.0)
-  - Connectivity (4.0.0)
   - Nuke (8.4.1)
   - PureLayout (3.1.6)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
+  - ReachabilitySwift (5.0.0)
   - SwiftLint (0.39.2)
   - Swinject (2.7.1)
   - SwinjectAutoregistration (2.7.0):
@@ -14,10 +14,10 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Connectivity
   - Nuke
   - PureLayout
   - R.swift
+  - ReachabilitySwift
   - SwiftLint
   - Swinject
   - SwinjectAutoregistration
@@ -26,11 +26,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Connectivity
     - Nuke
     - PureLayout
     - R.swift
     - R.swift.Library
+    - ReachabilitySwift
     - SwiftLint
     - Swinject
     - SwinjectAutoregistration
@@ -38,16 +38,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  Connectivity: c40b8de0a331b8081f790c8a3e6ada9f1d418065
   Nuke: d780e3507a86b86c589ab3cc5cd302d5456f06fb
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
   Wormholy: 5a186f877829e7d488963b09f204e0186b40c9a8
 
-PODFILE CHECKSUM: bff0ae5a692f87cb8879fdaeb489f30708a9b473
+PODFILE CHECKSUM: b1f2d7a107baa23ef236be8c6b36e7eab77855da
 
 COCOAPODS: 1.9.1

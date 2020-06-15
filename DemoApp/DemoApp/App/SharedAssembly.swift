@@ -8,7 +8,6 @@
 
 import Swinject
 import SwinjectAutoregistration
-import Connectivity
 
 // swiftlint:disable function_body_length
 class SharedAssembly: Assembly {
@@ -34,13 +33,6 @@ class SharedAssembly: Assembly {
 
         // Error Handler
         container.autoregister(ErrorHandlerProtocol.self, initializer: ErrorHandler.init)
-
-        // Connectivity
-        container.register(ConnectivityProtocol.self) { _ in
-            let connectivity = Connectivity()
-            connectivity.connectivityURLs = [URL(string: "https://www.apple.com/library/test/success.html")!]
-            return connectivity
-        }
 
         // Service
         container.register(ServiceProtocol.self) { _ in

@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import Reachability
 
 protocol MainPhotoListViewControllerProtocol: class, UIViewControllerRouting {
     var viewModel: MainPhotoListViewModelProtocol? { get }
@@ -37,19 +38,49 @@ class MainPhotoListViewController: UIViewController, MainPhotoListViewController
     private var refreshControl: UIRefreshControl!
     private var loadingOverlay: UIView!
 
+    private var reachability: Reachability!
+
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureReachability()
         initialSetup()
         prepareTableView()
         viewModel?.fetchPhotos()
         addLoadingOverlay()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        reachability.stopNotifier()
+    }
 }
 
 // MARK: Configure Methods
 extension MainPhotoListViewController {
+
+    func configureReachability() {
+        reachability = try? Reachability()
+
+        reachability?.whenReachable = { reachability in
+            Micro.log("Internet connection is on")
+        }
+        reachability?.whenUnreachable = { [weak self] _ in
+            self?.viewModel?.handleReachabilityError()
+        }
+    }
 
     func initialSetup() {
         self.view.backgroundColor = R.color.appTertiaryV3()!

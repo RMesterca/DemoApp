@@ -24,8 +24,7 @@ target 'DemoApp' do
 	pod 'Nuke'
  	
 	# Reachability
-	pod "Connectivity"
-
+        pod 'ReachabilitySwift'
 
   target 'DemoAppTests' do
     inherit! :search_paths

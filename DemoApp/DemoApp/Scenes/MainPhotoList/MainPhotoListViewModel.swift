@@ -14,6 +14,8 @@ protocol MainPhotoListViewModelProtocol {
 
     func fetchPhotos()
     func getPhoto(at index: Int) -> Photo?
+
+    func handleReachabilityError()
 }
 
 class MainPhotoListViewModel: MainPhotoListViewModelProtocol {
@@ -21,18 +23,15 @@ class MainPhotoListViewModel: MainPhotoListViewModelProtocol {
     weak var viewController: MainPhotoListViewControllerProtocol?
     private let service: ServiceProtocol
     private let errorHandler: ErrorHandlerProtocol
-    private let connectivity: ConnectivityProtocol
 
     var dataSource: PhotoDataSourceProtocol?
 
     init(
         service: ServiceProtocol,
-        errorHandler: ErrorHandlerProtocol,
-        connectivity: ConnectivityProtocol
+        errorHandler: ErrorHandlerProtocol
     ) {
         self.service = service
         self.errorHandler = errorHandler
-        self.connectivity = connectivity
     }
 
     func set(viewController: MainPhotoListViewControllerProtocol?) {
@@ -48,22 +47,14 @@ class MainPhotoListViewModel: MainPhotoListViewModelProtocol {
 extension MainPhotoListViewModel {
 
     func fetchPhotos() {
-        connectivity.connectivity { [weak self] error in
-            if let error = error {
+        service.getPhotos { [weak self] result in
+            switch result {
+            case .success(let photos):
+                self?.dataSource?.set(data: photos.sorted { $0.title < $1.title })
+                self?.viewController?.reloadTableView()
+            case .failure(let error):
                 self?.viewController?.endRefreshing()
                 self?.errorHandler.handle(error)
-                return
-            }
-
-            self?.service.getPhotos { [weak self] result in
-                switch result {
-                case .success(let photos):
-                    self?.dataSource?.set(data: photos.sorted { $0.title < $1.title })
-                    self?.viewController?.reloadTableView()
-                case .failure(let error):
-                    self?.viewController?.endRefreshing()
-                    self?.errorHandler.handle(error)
-                }
             }
         }
     }
@@ -72,5 +63,9 @@ extension MainPhotoListViewModel {
         guard let dataSource = dataSource, index < dataSource.data.count
             else { assertionFailure(); return nil }
         return dataSource.data[index]
+    }
+
+    func handleReachabilityError() {
+        errorHandler.handle(AppError.noConnection)
     }
 }
