@@ -24,8 +24,7 @@ target 'DemoApp' do
 	pod 'Nuke'
  	
 	# Reachability
-	# pod "Connectivity"
-
+	pod "Connectivity"
 
 
   target 'DemoAppTests' do

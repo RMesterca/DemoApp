@@ -15,8 +15,6 @@ protocol RootNavigatorProtocol {
 class RootNavigator: RootNavigatorProtocol {
 
     private var application: UIApplicationProtocol
-
-    //    private let sharedAssembly: Assembly
     private let initialViewController: MainPhotoListViewControllerProtocol
 
     init(
@@ -28,8 +26,6 @@ class RootNavigator: RootNavigatorProtocol {
     }
 
     func setInitialViewController() {
-        // normally, this would have been instantiated via swinject storyboard
-        application.rootViewController = ApplicationNavigationController(rootViewController:  initialViewController.toPresent())
-//            initialViewController.instantiateViewController()
+        application.rootViewController = ApplicationNavigationController(rootViewController: initialViewController.toPresent())
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 protocol UIViewControllerRouting {
     func toPresent() -> UIViewController
-
     func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?)
     func show(_ vc: UIViewController, sender: Any?)
     func pop(animated: Bool)

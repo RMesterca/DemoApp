@@ -25,4 +25,6 @@
 
 enum ReuseIdentifiers: String {
     case mainPhotoList
+    case photoDetailCommentList
+    case photoDetailHeaderView
 }

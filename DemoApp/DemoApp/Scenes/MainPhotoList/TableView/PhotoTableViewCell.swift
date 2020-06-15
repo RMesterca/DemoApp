@@ -13,7 +13,6 @@ import Nuke
 class PhotoTableViewCell: UITableViewCell {
 
     // MARK: Properties
-    private var roundedBackgroundView: UIView!
     private var stackView: UIStackView!
     private var titleLabel: UILabel!
     private var thumbnailImageView: UIImageView!
@@ -48,6 +47,8 @@ extension PhotoTableViewCell {
 
     func configureViews() {
         self.selectionStyle = .none
+        self.contentView.backgroundColor = R.color.appTertiaryV3()!
+
         configureThumbnailImageView()
         configureTitleLabel()
         configureStackview()
@@ -65,6 +66,9 @@ extension PhotoTableViewCell {
     func configureTitleLabel() {
         titleLabel = UILabel(forAutoLayout: ())
         titleLabel.numberOfLines = 0
+
+        titleLabel.font = R.font.robotoMedium(size: 14)!
+        titleLabel.textColor = R.color.appSecondary()!
     }
 
     // Stackview

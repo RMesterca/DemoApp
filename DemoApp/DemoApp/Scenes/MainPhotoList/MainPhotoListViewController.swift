@@ -13,40 +13,34 @@ protocol MainPhotoListViewControllerProtocol: class, UIViewControllerRouting {
     var viewModel: MainPhotoListViewModelProtocol? { get }
 
     func set(viewModel: MainPhotoListViewModelProtocol)
+    func set(router: MainPhotoListRouterProtocol)
+    func endRefreshing()
     func reloadTableView()
 }
 
-//extension MainPhotoListViewControllerProtocol {
-//
-//    func instantiateViewController() -> MainPhotoListViewController {
-//        let vc = MainPhotoListViewController()
-//        guard let viewModel = viewModel else { assertionFailure(); return vc }
-//        vc.set(viewModel: viewModel)
-//        return vc
-//    }
-//}
-
 class MainPhotoListViewController: UIViewController, MainPhotoListViewControllerProtocol {
-
-    // icons by Icons8
 
     // MARK: DI
     private (set) var viewModel: MainPhotoListViewModelProtocol?
+    private (set) var router: MainPhotoListRouterProtocol?
 
     func set(viewModel: MainPhotoListViewModelProtocol) {
         self.viewModel = viewModel
     }
 
+    func set(router: MainPhotoListRouterProtocol) {
+        self.router = router
+    }
+
     // MARK: Properties
     private var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
 
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .white
-        self.title = "Photo List"
-
+        initialSetup()
         prepareTableView()
         viewModel?.fetchPhotos()
     }
@@ -55,8 +49,19 @@ class MainPhotoListViewController: UIViewController, MainPhotoListViewController
 // MARK: Configure Methods
 extension MainPhotoListViewController {
 
+    func initialSetup() {
+        self.view.backgroundColor = R.color.appTertiaryV3()!
+        self.title = "Photo List"
+
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = R.color.appSecondary()!
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching Photos...")
+    }
+
     func prepareTableView() {
         tableView = UITableView()
+        tableView.backgroundColor = R.color.appTertiaryV3()!
+
         self.view.addSubview(tableView)
 
         tableView.autoPinEdge(toSuperviewSafeArea: .top)
@@ -69,8 +74,14 @@ extension MainPhotoListViewController {
 
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
 
         tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: ReuseIdentifiers.mainPhotoList.rawValue)
+    }
+
+    @objc func refreshTableView() {
+        viewModel?.fetchPhotos()
     }
 }
 
@@ -79,6 +90,11 @@ extension MainPhotoListViewController {
 
     func reloadTableView() {
         tableView.reloadData()
+        self.refreshControl.endRefreshing()
+    }
+
+    func endRefreshing() {
+        self.refreshControl.endRefreshing()
     }
 }
 
@@ -86,6 +102,7 @@ extension MainPhotoListViewController {
 extension MainPhotoListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        viewModel
+        guard let photo = viewModel?.getPhoto(at: indexPath.row) else { return assertionFailure() }
+        router?.route(to: .photoDetail(photo: photo))
     }
 }

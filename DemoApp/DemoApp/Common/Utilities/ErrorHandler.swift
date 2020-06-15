@@ -23,13 +23,16 @@ class ErrorHandler: ErrorHandlerProtocol {
 
     // TO DO: localize strings
     func handle(_ error: Error) {
-        Micro.logError(error.localizedDescription)
+        var title = "Something went wrong"
+        var description = error.localizedDescription
 
+        if let appError = error as? AppError {
+            title = appError.title
+            description = appError.localizedDescription
+        }
+
+        Micro.logError(description)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-        alertPresenter.presentAlert(
-            title: "Something went wrong",
-            description: error.localizedDescription,
-            actions: [okAction])
+        alertPresenter.presentAlert(title: title, description: description, actions: [okAction])
     }
 }

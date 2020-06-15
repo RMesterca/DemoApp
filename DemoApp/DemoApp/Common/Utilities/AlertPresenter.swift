@@ -15,19 +15,19 @@ protocol AlertPresenterProtocol {
 }
 
 class AlertPresenter: AlertPresenterProtocol {
-
+    
     private let topViewControllerProvider: TopViewControllerProviderProtocol
-
+    
     init(topViewControllerProvider: TopViewControllerProviderProtocol) {
         self.topViewControllerProvider = topViewControllerProvider
     }
-
+    
     func presentActionSheet(title: String?, description: String?, actions: [UIAlertAction]) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .actionSheet)
         actions.forEach { alert.addAction($0) }
         topViewControllerProvider.topViewController()?.present(alert, animated: true, completion: nil)
     }
-
+    
     func presentAlert(title: String?, description: String?, actions: [UIAlertAction]) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
@@ -35,7 +35,7 @@ class AlertPresenter: AlertPresenterProtocol {
             self.topViewControllerProvider.topViewController()?.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     func presentAlertAttributed(title: NSAttributedString, description: NSAttributedString, actions: [UIAlertAction]) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
