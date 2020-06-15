@@ -10,6 +10,7 @@ import Swinject
 import SwinjectAutoregistration
 import Connectivity
 
+// swiftlint:disable function_body_length
 class SharedAssembly: Assembly {
     let sharedContainer = Container()
 
@@ -93,3 +94,4 @@ class SharedAssembly: Assembly {
         container.autoregister(PhotoDetailRouterProtocol.self, initializer: PhotoDetailRouter.init)
     }
 }
+// swiftlint:enable function_body_length

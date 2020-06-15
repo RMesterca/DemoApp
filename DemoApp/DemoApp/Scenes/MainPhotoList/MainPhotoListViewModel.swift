@@ -74,5 +74,3 @@ extension MainPhotoListViewModel {
         return dataSource.data[index]
     }
 }
-
-
