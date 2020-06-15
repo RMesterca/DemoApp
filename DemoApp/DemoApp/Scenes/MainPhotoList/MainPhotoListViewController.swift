@@ -35,6 +35,7 @@ class MainPhotoListViewController: UIViewController, MainPhotoListViewController
     // MARK: Properties
     private var tableView: UITableView!
     private var refreshControl: UIRefreshControl!
+    private var loadingOverlay: UIView!
 
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -43,6 +44,7 @@ class MainPhotoListViewController: UIViewController, MainPhotoListViewController
         initialSetup()
         prepareTableView()
         viewModel?.fetchPhotos()
+        addLoadingOverlay()
     }
 }
 
@@ -91,10 +93,34 @@ extension MainPhotoListViewController {
     func reloadTableView() {
         tableView.reloadData()
         self.refreshControl.endRefreshing()
+        removeLoadingOverlay()
     }
 
     func endRefreshing() {
         self.refreshControl.endRefreshing()
+        removeLoadingOverlay()
+    }
+
+    func addLoadingOverlay() {
+        loadingOverlay = UIView(forAutoLayout: ())
+        loadingOverlay.backgroundColor = R.color.appTransparentBlack()!
+        self.view.addSubview(loadingOverlay)
+
+        loadingOverlay.autoPinEdge(toSuperviewSafeArea: .top)
+        loadingOverlay.autoPinEdge(toSuperviewSafeArea: .bottom)
+        loadingOverlay.autoPinEdge(toSuperviewSafeArea: .trailing)
+        loadingOverlay.autoPinEdge(toSuperviewSafeArea: .leading)
+
+          let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        loadingOverlay.addSubview(activityIndicator)
+        activityIndicator.autoCenterInSuperview()
+
+        activityIndicator.startAnimating()
+    }
+
+    func removeLoadingOverlay() {
+        loadingOverlay.removeFromSuperview()
     }
 }
 
