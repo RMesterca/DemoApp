@@ -16,11 +16,10 @@ protocol MainPhotoListRouterProtocol {
 class MainPhotoListRouter: MainPhotoListRouterProtocol {
 
     weak var viewController: MainPhotoListViewControllerProtocol?
+    private let rootNavigator: RootNavigatorProtocol
 
-    private let photoDetail: PhotoDetailViewControllerProtocol?
-
-    init(photoDetail: PhotoDetailViewControllerProtocol) {
-        self.photoDetail = photoDetail
+    init(rootNavigator: RootNavigatorProtocol) {
+        self.rootNavigator = rootNavigator
     }
 
     func set(viewController: MainPhotoListViewControllerProtocol) {
@@ -34,7 +33,10 @@ class MainPhotoListRouter: MainPhotoListRouterProtocol {
     func route(to scene: MainPhotoListRouter.Scene) {
         switch scene {
         case .photoDetail(let photo):
-            guard let vc = photoDetail?.toPresent() as? PhotoDetailViewController else { return assertionFailure() }
+
+            let container = rootNavigator.assembler()
+
+            guard let vc = container.resolve(PhotoDetailViewController.self) else { return assertionFailure() }
 
             vc.set(data: photo)
             viewController?.show(vc, sender: nil)

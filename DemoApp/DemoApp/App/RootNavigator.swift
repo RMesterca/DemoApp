@@ -10,22 +10,29 @@ import Swinject
 
 protocol RootNavigatorProtocol {
     func setInitialViewController()
+    func assembler() -> Container
 }
 
 class RootNavigator: RootNavigatorProtocol {
 
     private var application: UIApplicationProtocol
-    private let initialViewController: MainPhotoListViewControllerProtocol
+    private let sharedContainer: Container
 
     init(
         application: UIApplicationProtocol,
-        initialViewController: MainPhotoListViewControllerProtocol
+        sharedContainer: Container
     ) {
         self.application = application
-        self.initialViewController = initialViewController
+        self.sharedContainer = sharedContainer
     }
 
     func setInitialViewController() {
-        application.rootViewController = ApplicationNavigationController(rootViewController: initialViewController.toPresent())
+        guard let initialVC = sharedContainer.resolve(MainPhotoListViewController.self) as? MainPhotoListViewController
+            else { return assertionFailure() }
+        application.rootViewController = ApplicationNavigationController(rootViewController: initialVC)
+    }
+
+    func assembler() -> Container {
+        return sharedContainer
     }
 }

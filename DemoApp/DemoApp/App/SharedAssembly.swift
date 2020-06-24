@@ -25,7 +25,7 @@ class SharedAssembly: Assembly {
         container.register(RootNavigatorProtocol.self) { resolver in
             return RootNavigator(
                 application: resolver ~> UIApplicationProtocol.self,
-                initialViewController: resolver ~> (MainPhotoListViewControllerProtocol.self))
+                sharedContainer: container)
         }
 
         // Alert presenter
@@ -40,10 +40,12 @@ class SharedAssembly: Assembly {
         }
 
         // Main Scene
-        container.register(MainPhotoListViewControllerProtocol.self) { resolver in
+        container.register(MainPhotoListViewController.self) { resolver in
             let vc = MainPhotoListViewController()
 
             let router = resolver ~> MainPhotoListRouterProtocol.self
+            let root = resolver ~> RootNavigatorProtocol.self
+
             let viewModel = resolver ~> MainPhotoListViewModelProtocol.self
             let dataSource = resolver ~> PhotoDataSourceProtocol.self
 
@@ -60,10 +62,12 @@ class SharedAssembly: Assembly {
 
         container.autoregister(PhotoDataSourceProtocol.self, initializer: PhotoDataSource.init)
         container.autoregister(MainPhotoListViewModelProtocol.self, initializer: MainPhotoListViewModel.init)
-        container.autoregister(MainPhotoListRouterProtocol.self, initializer: MainPhotoListRouter.init)
+        container.register(MainPhotoListRouterProtocol.self) { resolver in
+            return MainPhotoListRouter(rootNavigator: resolver ~> RootNavigatorProtocol.self)
+        }
 
         // Detail Scene
-        container.register(PhotoDetailViewControllerProtocol.self) { resolver in
+        container.register(PhotoDetailViewController.self) { resolver in
             let vc = PhotoDetailViewController()
 
             let router = resolver ~> PhotoDetailRouterProtocol.self
